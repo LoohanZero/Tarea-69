@@ -153,7 +153,7 @@ const PasswordField = ({ status }) => {
         <div style={styleDiv}>
             <label>Password</label>
             <input type="password" style={infoStyle}/>
-            {status === "error" ? <small style={{color: "red"}}>Invalid password, please try again.</small> : ""}
+            {status === "error" && <small style={{color: "red"}}>Invalid password, please try again.</small>}
         </div>
     )
 }
@@ -161,7 +161,7 @@ const PasswordField = ({ status }) => {
 
 const App = () => {
     return (
-      <PasswordField status="error"/>
+      <PasswordField status="add"/>
     )
 }
 
