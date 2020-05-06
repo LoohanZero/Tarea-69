@@ -103,9 +103,10 @@ const LoggedUserMessage = ({children}) => {
 }
 
 const UserGreeting = ({ user }) => {
-    const isSomeoneLogged = user ? <LoggedUserMessage>Welcome, {user}!</LoggedUserMessage> : <GuestUserMessage></GuestUserMessage>
 
-    return isSomeoneLogged
+    return user ? 
+            <LoggedUserMessage>Welcome, {user}!</LoggedUserMessage> : 
+            <GuestUserMessage></GuestUserMessage>
 }
 
 
@@ -120,22 +121,18 @@ const UserGreeting = ({ user }) => {
 
 
 const List = ({ items }) => {
-    if (!items) {
-        return <p>Sorry, this list is empty!</p>
-    }
-    // console.log(items)
-    // const list = 
-    // console.log(list)
-    return <ul>{items.map((item) => (<li>{item}</li>))}</ul>
+    return !items ? 
+            <p>Sorry, this list is empty!</p> : 
+            <ul>{items.map((item) => (<li>{item}</li>))}</ul>
     
 }
 
 
-// const App = () => {
-//     return (
-//        <List items={["item1", "item2", "item3", "item4"]}></List>
-//     )
-// }
+const App = () => {
+    return (
+       <List items={["item1", "item2", "item3", "item4"]}></List>
+    )
+}
 
 // Field
 // Crear un componente PasswordField que acepte una prop status que es un string con los valores posibles: "default", "error", "valid". El componente Field debe renderizar un label que diga "Password" y un input de tipo password. Si status tiene el valor "valid", debe mostrar el input con un borde de color verde. Si tiene el valor "error", debe mostrar el input con un borde de color rojo y renderizar debajo del input un componente small en color rojo que diga: "Invalid password, please try again"
@@ -167,10 +164,10 @@ const PasswordField = ({ status }) => {
 }
 
 
-const App = () => {
-    return (
-      <PasswordField status="error"/>
-    )
-}
+// const App = () => {
+//     return (
+//       <PasswordField status="error"/>
+//     )
+// }
 
 ReactDOM.render(<App />, root)
