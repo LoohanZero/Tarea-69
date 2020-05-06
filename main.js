@@ -38,13 +38,8 @@ return (
 
 //No logro que se vea el <a> como link aunque aparece en el HTML (No aparece el href, solo aparece como prop)
 const MenuItem = ({ children, path }) => {
-    const infoStyles = {
-        display: "flex"
-    }
-
-
-   return (
-         <li style={infoStyles}>
+      return (
+         <li style={{display: "flex"}}>
              <a href={path}>
                  {children}
              </a>
@@ -128,11 +123,11 @@ const List = ({ items }) => {
 }
 
 
-const App = () => {
-    return (
-       <List items={["item1", "item2", "item3", "item4"]}></List>
-    )
-}
+// const App = () => {
+//     return (
+//        <List items={["item1", "item2", "item3", "item4"]}></List>
+//     )
+// }
 
 // Field
 // Crear un componente PasswordField que acepte una prop status que es un string con los valores posibles: "default", "error", "valid". El componente Field debe renderizar un label que diga "Password" y un input de tipo password. Si status tiene el valor "valid", debe mostrar el input con un borde de color verde. Si tiene el valor "error", debe mostrar el input con un borde de color rojo y renderizar debajo del input un componente small en color rojo que diga: "Invalid password, please try again"
@@ -157,17 +152,17 @@ const PasswordField = ({ status }) => {
     return (
         <div style={styleDiv}>
             <label>Password</label>
-            <input type="password" style={infoStyle}></input>
+            <input type="password" style={infoStyle}/>
             {status === "error" ? <small style={{color: "red"}}>Invalid password, please try again.</small> : ""}
         </div>
     )
 }
 
 
-// const App = () => {
-//     return (
-//       <PasswordField status="error"/>
-//     )
-// }
+const App = () => {
+    return (
+      <PasswordField status="error"/>
+    )
+}
 
 ReactDOM.render(<App />, root)
